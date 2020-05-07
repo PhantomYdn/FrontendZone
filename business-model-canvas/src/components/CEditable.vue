@@ -1,14 +1,24 @@
 <template>
   <div class="ceditable">
-    <div class="text" v-show="!edit" @click="editValue">{{localValue}}</div>
-    <textarea v-show="edit" v-model="localValue" v-click-outside="viewValue" v-focus></textarea>
+    <div class="text" v-show="!edit" @click="editValue"><vue-markdown :source="localValue"></vue-markdown></div>
+    <textarea
+      v-show="edit"
+      v-model="localValue"
+      v-click-outside="viewValue"
+      @keydown.enter="handleCtrlEnter"
+      v-focus
+    ></textarea>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-export default {
-  name: "CEditable",
+import VueMarkdown from "vue-markdown";
+export default { 
+  name: "CEditable", 
+  components: {
+    VueMarkdown
+  },
   props: {
     value: String
   },
@@ -30,6 +40,9 @@ export default {
 
     viewValue() {
       this.edit = false;
+    },
+    handleCtrlEnter(e) {
+      if (e.ctrlKey) return this.viewValue();
     }
   },
   directives: {
@@ -60,7 +73,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 div.ceditable {
   border: solid 1px #00ff22;
   display: flex;
@@ -68,11 +81,14 @@ div.ceditable {
   height: 100%;
 }
 
-div.text {
+div.ceditable div.text, div.ceditable div.text > div > p,
+div.ceditable > textarea {
   word-break: break-word;
-}
-
-textarea {
   width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  padding: 3px;
+  margin: 0;
 }
 </style>
