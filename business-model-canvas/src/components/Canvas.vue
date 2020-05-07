@@ -1,16 +1,14 @@
 <template>
   <div class="canvas">
-    <CPanel title="Key Partners" row="1/3" column="1" />
-    <CPanel title="Key Activities" row="1" column="2" />
-    <CPanel title="Value Propositions" row="1/3" column="3" />
-    <CPanel title="Customer Relationships" row="1" column="4" />
-    <CPanel title="Customer Segments" row="1/3" column="5" />
-    <CPanel title="Key Resources" row="2" column="2" />
-    <CPanel title="Channels" row="2" column="4" />
-    <div class="lowrow">
-      <CPanel title="Key Resources" row="1" column="1" />
-      <CPanel title="Channels" row="1" column="2" />
-    </div>
+    <CPanel title="Key Partners" row="1/3" column="1/3" />
+    <CPanel title="Key Activities" row="1" column="3/5" />
+    <CPanel title="Value Propositions" row="1/3" column="5/7" />
+    <CPanel title="Customer Relationships" row="1" column="7/9" />
+    <CPanel title="Customer Segments" row="1/3" column="9/11" />
+    <CPanel title="Key Resources" row="2" column="3/5" />
+    <CPanel title="Channels" row="2" column="7/9" />
+    <CPanel title="Key Resources" row="3" column="1/6" />
+    <CPanel title="Channels" row="3" column="6/11" />
   </div>
 </template>
 
@@ -31,7 +29,7 @@ export default {
 <style scoped>
 div.canvas {
   display: grid;
-  grid-template-columns: repeat(5, 2fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: minmax(100px, auto);
 }
 
