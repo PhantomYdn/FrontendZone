@@ -2,7 +2,7 @@
   <div class="cpanel" :style="'grid-row: '+layout.row+'; grid-column: '+layout.column+';'">
     <h4>{{layout.title}}</h4>
     <div class="desc" v-html="layout.description"></div>
-    <CEditable :value="'PANEL '+layout.title" />
+    <CEditable :value="data" />
   </div>
 </template>
 
@@ -11,7 +11,8 @@ import CEditable from "./CEditable";
 export default {
   name: "CPanel",
   props: {
-    layout: Object
+    layout: Object,
+    data: String
   },
   components: {
     CEditable

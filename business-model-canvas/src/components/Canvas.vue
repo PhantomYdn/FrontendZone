@@ -3,7 +3,7 @@
     class="canvas"
     :style="'grid-template-columns: repeat('+layout.columns+', 1fr); grid-auto-rows: minmax('+layout.height+', auto);'"
   >
-    <CPanel v-for="p in layout.panels" v-bind:key="p.id" :layout="p" />
+    <CPanel v-for="p in layout.panels" v-bind:key="p.id" :layout="p" :data="data[p.id]" />
   </div>
 </template>
 
@@ -16,6 +16,17 @@ export default {
   },
   data() {
     return {
+      data: {
+        partners: "",
+        activities: "",
+        propositions: "",
+        relationships: "",
+        segments: "",
+        resources: "",
+        channels: "",
+        cost: "",
+        revenue: ""
+      },
       layout: {
         columns: 10,
         height: "150px",
