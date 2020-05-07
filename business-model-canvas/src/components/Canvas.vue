@@ -1,14 +1,6 @@
 <template>
-  <div class="canvas">
-    <CPanel title="Key Partners" row="1/3" column="1/3" />
-    <CPanel title="Key Activities" row="1" column="3/5" />
-    <CPanel title="Value Propositions" row="1/3" column="5/7" />
-    <CPanel title="Customer Relationships" row="1" column="7/9" />
-    <CPanel title="Customer Segments" row="1/3" column="9/11" />
-    <CPanel title="Key Resources" row="2" column="3/5" />
-    <CPanel title="Channels" row="2" column="7/9" />
-    <CPanel title="Key Resources" row="3" column="1/6" />
-    <CPanel title="Channels" row="3" column="6/11" />
+  <div class="canvas" :style="'grid-template-columns: repeat('+layout.columns+', 1fr);'">
+    <CPanel v-for="p in layout.panels" v-bind:key="p.id" :layout="p" />
   </div>
 </template>
 
@@ -18,10 +10,45 @@ export default {
   name: "Canvas",
   components: {
     CPanel
+  },
+  data() {
+    return {
+      layout: {
+        columns: 10,
+        panels: [
+          { id: "partners", title: "Key Partners", row: "1/3", column: "1/3" },
+          {
+            id: "activities",
+            title: "Key Activities",
+            row: "1",
+            column: "3/5"
+          },
+          {
+            id: "propositions",
+            title: "Value Propositions",
+            row: "1/3",
+            column: "5/7"
+          },
+          {
+            id: "relationships",
+            title: "Customer Relationships",
+            row: "1",
+            column: "7/9"
+          },
+          {
+            id: "segments",
+            title: "Customer Segments",
+            row: "1/3",
+            column: "9/11"
+          },
+          { id: "resources", title: "Key Resources", row: "2", column: "3/5" },
+          { id: "channels", title: "Channels", row: "2", column: "7/9" },
+          { id: "cost", title: "Cost Structure", row: "3", column: "1/6" },
+          { id: "revenue", title: "Revenue Streams", row: "3", column: "6/11" }
+        ]
+      }
+    };
   }
-  /*props: {
-    msg: String
-  }*/
 };
 </script>
 
@@ -29,7 +56,6 @@ export default {
 <style scoped>
 div.canvas {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: minmax(100px, auto);
 }
 

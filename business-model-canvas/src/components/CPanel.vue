@@ -1,7 +1,7 @@
 <template>
-  <div class="cpanel" :style="'grid-row: '+row+'; grid-column: '+column+';'">
-    <h5>{{title}}</h5>
-    <CEditable :value="'PANEL '+title" />
+  <div class="cpanel" :style="'grid-row: '+layout.row+'; grid-column: '+layout.column+';'">
+    <h5>{{layout.title}}</h5>
+    <CEditable :value="'PANEL '+layout.title" />
   </div>
 </template>
 
@@ -10,9 +10,7 @@ import CEditable from "./CEditable";
 export default {
   name: "CPanel",
   props: {
-    title: String,
-    row: String,
-    column: String
+    layout: Object
   },
   components: {
     CEditable
@@ -23,8 +21,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 div.cpanel {
-  min-height: 100px;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  border: solid 1px red;
 }
 div.cpanel > h5 {
   margin: 0 auto;

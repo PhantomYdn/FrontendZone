@@ -62,12 +62,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div.ceditable {
-  border: solid 1px red;
+  border: solid 1px #00ff22;
   display: flex;
-}
-div.ceditable,
-textarea {
   width: 100%;
   height: 100%;
+}
+
+textarea {
+  width: 100%;
 }
 </style>
