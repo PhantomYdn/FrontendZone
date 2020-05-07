@@ -1,7 +1,7 @@
 <template>
-  <div class="cpanel">
+  <div class="cpanel" :style="'grid-row: '+row+'; grid-column: '+column+';'">
     <h5>{{title}}</h5>
-    <CEditable :value="'PANEL '+title"/>
+    <CEditable :value="'PANEL '+title" />
   </div>
 </template>
 
@@ -10,7 +10,9 @@ import CEditable from "./CEditable";
 export default {
   name: "CPanel",
   props: {
-    title: String
+    title: String,
+    row: String,
+    column: String
   },
   components: {
     CEditable

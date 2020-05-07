@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    editValue(e) {
+    editValue() {
       this.edit = true;
     },
 
