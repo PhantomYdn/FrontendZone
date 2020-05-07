@@ -1,6 +1,6 @@
 <template>
   <div class="ceditable">
-    <p v-show="!edit" @click="editValue">{{localValue}}</p>
+    <div class="text" v-show="!edit" @click="editValue">{{localValue}}</div>
     <textarea v-show="edit" v-model="localValue" v-click-outside="viewValue" v-focus></textarea>
   </div>
 </template>
@@ -66,6 +66,10 @@ div.ceditable {
   display: flex;
   width: 100%;
   height: 100%;
+}
+
+div.text {
+  word-break: break-word;
 }
 
 textarea {
