@@ -2,7 +2,7 @@
   <div class="cpanel" :style="'grid-row: '+layout.row+'; grid-column: '+layout.column+';'">
     <h4>{{layout.title}}</h4>
     <div class="desc" v-html="layout.description"></div>
-    <CEditable :value="data" />
+    <CEditable v-for="(item, index) in data" :key="index" :value="item" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: "CPanel",
   props: {
     layout: Object,
-    data: String
+    data: Array
   },
   components: {
     CEditable

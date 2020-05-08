@@ -17,15 +17,15 @@ export default {
   data() {
     return {
       data: {
-        partners: "",
-        activities: "",
-        propositions: "",
-        relationships: "",
-        segments: "",
-        resources: "",
-        channels: "",
-        cost: "",
-        revenue: ""
+        partners: ["", ""],
+        activities: [""],
+        propositions: ["# Hello, Asker and Vitaliy!\n This is just a demo of business model canvas(BMC). **No Design Yet**. It's being developed for BMC, but framework allows to create canvas for other types of canvases.\n\nHow to use:\n\n* Click on required block\n* Enter data as markdown\n* Click in some other place or Ctrl-Enter"],
+        relationships: [""],
+        segments: [""],
+        resources: [""],
+        channels: [""],
+        cost: [""],
+        revenue: [""]
       },
       layout: {
         columns: 10,
