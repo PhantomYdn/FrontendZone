@@ -28,10 +28,10 @@ export default {
   data() {
     return {
       data: {
-        partners: ["Test 1", "Test 2"],
+        partners: ["Drag me", "Drag me too!"],
         activities: [""],
         propositions: [
-          "# Hello, Asker and Vitaliy!\n This is just a demo of business model canvas(BMC). **No Design Yet**. It's being developed for BMC, but framework allows to create canvas for other types of canvases.\n\nHow to use:\n\n* Click on required block\n* Enter data as markdown\n* Click in some other place or Ctrl-Enter"
+          "# Hello, Asker and Vitaliy!\n This is just a demo of business model canvas(BMC). **No Design Yet**. It's being developed for BMC, but framework allows to create canvas for other types of canvases.\n\nHow to use:\n\n* Click on required block\n* Enter data as markdown\n* Click in some other place or Ctrl-Enter\n* Drag records in groups and between"
         ],
         relationships: [""],
         segments: [""],

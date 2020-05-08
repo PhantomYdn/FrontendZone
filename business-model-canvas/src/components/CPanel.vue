@@ -8,9 +8,11 @@
     <draggable
       tag="div"
       class="group"
+      dragClass="dragging"
       :list="data"
       handle="div.drag"
       group="editables"
+      forceFallback="true"
     >
       <CEditable
         v-for="(item, index) in data"
@@ -38,9 +40,7 @@ export default {
   },
   methods: {
     changeValue: function(index, newValue) {
-      console.log(index + ": " + newValue);
       this.data[index] = newValue;
-      console.log(this.data);
     }
   }
 };

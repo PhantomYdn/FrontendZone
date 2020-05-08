@@ -10,7 +10,7 @@
       @keydown.enter="handleCtrlEnter"
       v-focus
     ></textarea>
-    <div class="drag"><span></span></div>
+    <div class="drag"></div>
   </div>
 </template>
 
@@ -85,6 +85,11 @@ div.ceditable {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+div.ceditable.dragging {
+  background: rgb(208, 169, 218);
+  border: solid 1px rgb(177, 143, 185);
 }
 
 div.ceditable div.text,
