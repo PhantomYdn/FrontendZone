@@ -23,7 +23,8 @@ export default {
     VueMarkdown
   },
   props: {
-    value: String
+    value: String,
+    index: Number
   },
   data() {
     return {
@@ -43,6 +44,7 @@ export default {
 
     viewValue() {
       this.edit = false;
+      this.$emit("changeValue", this.index, this.localValue);
     },
     handleCtrlEnter(e) {
       if (e.ctrlKey) return this.viewValue();
@@ -98,6 +100,7 @@ div.ceditable > textarea {
 
 div.ceditable div.text {
   padding: 0 15px;
+  min-height: 2em;
 }
 
 div.ceditable > textarea {
@@ -106,6 +109,7 @@ div.ceditable > textarea {
 
 div.ceditable div.drag {
   background: rgb(177, 143, 185) url("../assets/handle.png");
+  cursor: move;
   position: absolute;
   top: 0;
   left: 0;

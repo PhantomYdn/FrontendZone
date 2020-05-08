@@ -5,12 +5,27 @@
   >
     <h4>{{ layout.title }}</h4>
     <div class="desc" v-html="layout.description"></div>
-    <CEditable v-for="(item, index) in data" :key="index" :value="item" />
+    <draggable
+      tag="div"
+      class="group"
+      :list="data"
+      handle="div.drag"
+      group="editables"
+    >
+      <CEditable
+        v-for="(item, index) in data"
+        :key="item"
+        :value="item"
+        :index="index"
+        v-on:changeValue="changeValue"
+      />
+    </draggable>
   </div>
 </template>
 
 <script>
 import CEditable from "./CEditable";
+import draggable from "vuedraggable";
 export default {
   name: "CPanel",
   props: {
@@ -18,7 +33,15 @@ export default {
     data: Array
   },
   components: {
+    draggable,
     CEditable
+  },
+  methods: {
+    changeValue: function(index, newValue) {
+      console.log(index + ": " + newValue);
+      this.data[index] = newValue;
+      console.log(this.data);
+    }
   }
 };
 </script>
@@ -30,8 +53,13 @@ div.cpanel {
   height: 100%;
   border: solid 1px rgb(177, 143, 185);
   background: rgb(208, 169, 218);
+}
+
+div.cpanel,
+div.cpanel > div.group {
   display: flex;
   flex-flow: column;
+  height: 100%;
 }
 
 div.cpanel:hover {

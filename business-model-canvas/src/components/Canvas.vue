@@ -1,9 +1,20 @@
 <template>
   <div
     class="canvas"
-    :style="'grid-template-columns: repeat('+layout.columns+', 1fr); grid-auto-rows: minmax('+layout.height+', auto);'"
+    :style="
+      'grid-template-columns: repeat(' +
+        layout.columns +
+        ', 1fr); grid-auto-rows: minmax(' +
+        layout.height +
+        ', auto);'
+    "
   >
-    <CPanel v-for="p in layout.panels" v-bind:key="p.id" :layout="p" :data="data[p.id]" />
+    <CPanel
+      v-for="p in layout.panels"
+      v-bind:key="p.id"
+      :layout="p"
+      :data="data[p.id]"
+    />
   </div>
 </template>
 
@@ -17,9 +28,11 @@ export default {
   data() {
     return {
       data: {
-        partners: ["", ""],
+        partners: ["Test 1", "Test 2"],
         activities: [""],
-        propositions: ["# Hello, Asker and Vitaliy!\n This is just a demo of business model canvas(BMC). **No Design Yet**. It's being developed for BMC, but framework allows to create canvas for other types of canvases.\n\nHow to use:\n\n* Click on required block\n* Enter data as markdown\n* Click in some other place or Ctrl-Enter"],
+        propositions: [
+          "# Hello, Asker and Vitaliy!\n This is just a demo of business model canvas(BMC). **No Design Yet**. It's being developed for BMC, but framework allows to create canvas for other types of canvases.\n\nHow to use:\n\n* Click on required block\n* Enter data as markdown\n* Click in some other place or Ctrl-Enter"
+        ],
         relationships: [""],
         segments: [""],
         resources: [""],
