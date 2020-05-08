@@ -28,9 +28,14 @@ export default {
 div.cpanel {
   width: 100%;
   height: 100%;
-  border: solid 1px red;
+  border: solid 1px rgb(177, 143, 185);
+  background: rgb(208, 169, 218);
   display: flex;
   flex-flow: column;
+}
+
+div.cpanel:hover {
+  background: rgb(196, 158, 204);
 }
 div.cpanel > h4 {
   margin: 0 auto;

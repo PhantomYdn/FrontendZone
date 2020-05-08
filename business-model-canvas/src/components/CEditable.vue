@@ -78,7 +78,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 div.ceditable {
-  border: solid 1px #00ff22;
+  border-top: solid 1px rgb(177, 143, 185);
   display: flex;
   width: 100%;
   height: 100%;
@@ -105,7 +105,7 @@ div.ceditable > textarea {
 }
 
 div.ceditable div.drag {
-  background: rgb(185, 185, 185) url("../assets/handle.png");
+  background: rgb(177, 143, 185) url("../assets/handle.png");
   position: absolute;
   top: 0;
   left: 0;
