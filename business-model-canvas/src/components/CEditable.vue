@@ -1,6 +1,8 @@
 <template>
   <div class="ceditable">
-    <div class="text" v-show="!edit" @click="editValue"><vue-markdown :source="localValue"></vue-markdown></div>
+    <div class="text" v-show="!edit" @click="editValue">
+      <vue-markdown :source="localValue"></vue-markdown>
+    </div>
     <textarea
       v-show="edit"
       v-model="localValue"
@@ -8,14 +10,15 @@
       @keydown.enter="handleCtrlEnter"
       v-focus
     ></textarea>
+    <div class="drag"><span></span></div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import VueMarkdown from "vue-markdown";
-export default { 
-  name: "CEditable", 
+export default {
+  name: "CEditable",
   components: {
     VueMarkdown
   },
@@ -79,16 +82,38 @@ div.ceditable {
   display: flex;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-div.ceditable div.text, div.ceditable div.text > div > p,
+div.ceditable div.text,
+div.ceditable div.text > div > p,
 div.ceditable > textarea {
   word-break: break-word;
   width: 100%;
   text-align: left;
   font-size: 14px;
   font-family: "Times New Roman", Times, serif;
-  padding: 3px;
   margin: 0;
+}
+
+div.ceditable div.text {
+  padding: 0 15px;
+}
+
+div.ceditable > textarea {
+  margin-left: 15px;
+}
+
+div.ceditable div.drag {
+  background: rgb(185, 185, 185) url("../assets/handle.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 100%;
+}
+
+div.ceditable div.drag > span {
+  content: "....";
 }
 </style>

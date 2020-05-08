@@ -1,6 +1,9 @@
 <template>
-  <div class="cpanel" :style="'grid-row: '+layout.row+'; grid-column: '+layout.column+';'">
-    <h4>{{layout.title}}</h4>
+  <div
+    class="cpanel"
+    :style="'grid-row: ' + layout.row + '; grid-column: ' + layout.column + ';'"
+  >
+    <h4>{{ layout.title }}</h4>
     <div class="desc" v-html="layout.description"></div>
     <CEditable v-for="(item, index) in data" :key="index" :value="item" />
   </div>
@@ -38,5 +41,6 @@ div.cpanel > div.desc {
   font-style: italic;
   text-align: left;
   font-size: x-small;
+  padding: 3px 2em;
 }
 </style>
